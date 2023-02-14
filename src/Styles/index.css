@@ -1,0 +1,40 @@
+
+
+@font-face {
+  font-family: 'Yekan';
+  src:  url('../fonts/WebYekan.ttf') format('ttf'),
+  url('../fonts/WebYekan.eot') format('eot'),
+  url('../fonts/WebYekan.woff') format('woff');
+}
+
+*{
+  direction: rtl;
+  font-family: 'Yekan'!important;
+font-size: 18px;
+}
+
+a{
+  text-decoration: none!important;
+}
+
+.login-btn{
+  position: absolute;
+  left: 2rem;
+  top: 8px;
+}
+.layout{
+  min-height: 100vh !important;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 70vh;
+}
+#components-layout-demo-top .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
