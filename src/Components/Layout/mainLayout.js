@@ -2,10 +2,19 @@ import React from "react";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { change_loader } from "../../redux/actions";
+
 
 const { Header, Content, Footer } = Layout;
 
 const MainLayout = (props) => {
+
+
+  
+  const dispatch = useDispatch()
+
+
   return (
     <Layout className="layout">
       <Header>
@@ -16,7 +25,7 @@ const MainLayout = (props) => {
           mode="horizontal"
           defaultSelectedKeys={[props.activePage]}
         >
-          <Menu.Item key="main">
+          <Menu.Item key="main" onClick={() => {dispatch(change_loader(false))}}>
             <Link to="/">صفحه اصلی</Link>
           </Menu.Item>
           <Menu.Item key="postsList">

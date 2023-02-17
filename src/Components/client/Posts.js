@@ -9,7 +9,7 @@ import renderHTML from "react-render-html";
 const { Paragraph } = Typography
 const Posts = ({ post }) => {
 
-    console.log(post)
+    // console.log(post)
     return (
 
 
@@ -40,7 +40,7 @@ const Posts = ({ post }) => {
                                     <Divider type="vertical" style={{ height: "100%" }} />
                                 </Col>
                                 <Col xs={11} sm={11} md={6} lg={6} xl={7}>
-                                    <Paragraph ellipsis={{ row: 5, expandable: true, symbol: "مشاهده کل مطلب" }}><div>{renderHTML(post.content.rendered)}</div></Paragraph>
+                                    <Paragraph ellipsis={{ row: 5, expandable: true, symbol: "مشاهده کل مطلب" }}>{renderHTML(post.content.rendered)}</Paragraph>
                                 </Col>
                             </Row>
                         </CardBody>

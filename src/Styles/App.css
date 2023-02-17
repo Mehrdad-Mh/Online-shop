@@ -49,3 +49,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+.loader{
+  margin-top: 14%;
+  width: 200px;
+  height: 200px;
+}

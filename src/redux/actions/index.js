@@ -1,7 +1,7 @@
-const add_user = (props)  => ({type : 'ADDUSER' , payload : props});
+const change_loader = (bool)  => ({type : 'LOADER' , payload : bool });
 
 
 
 export {
-    add_user
+    change_loader
 }

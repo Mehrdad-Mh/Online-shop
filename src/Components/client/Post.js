@@ -1,3 +1,4 @@
+import Loader from "../../loader.gif";
 import React from 'react';
 import MainLayout from '../Layout/mainLayout';
 import { Row, Col, Card, CardImg, CardBody } from "reactstrap";
@@ -6,23 +7,30 @@ import axios from 'axios';
 import clientConfig from '../../clientConfig';
 import { useState } from 'react';
 import renderHTML from 'react-render-html';
-import "bootstrap"
+import "bootstrap";
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { change_loader } from '../../redux/actions';
+
+
+
 const { Paragraph } = Typography;
-
-
 const Post = () => {
-
+  const loader = useSelector(state => state.loader)
+  const dispatch = useDispatch()
   const [data, setData] = useState([])
 
   axios.get(`${clientConfig.siteUrl}/wp-json/wp/v2/posts`).then((res) => {
     setData(res.data)
-    console.log(res.data, "is responce")
+    dispatch(change_loader(true))
+    // console.log(res.data, "is responce")
   }).catch(err => console.catch(err, "is not responce"))
 
 
 
-  return (
+  return loader===false ?(
+<img className="loader" src={Loader} alt = "در حال بارگذاری" />
+  ):(
 
     <MainLayout activePage="main">
 
