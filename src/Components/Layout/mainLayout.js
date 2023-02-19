@@ -2,16 +2,17 @@ import React from "react";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { change_loader } from "../../redux/actions";
-
+import AvatarDropdown from "./dropdown";
 
 const { Header, Content, Footer } = Layout;
 
 const MainLayout = (props) => {
+  const login = useSelector((state) => state.login);
 
 
-  
+
   const dispatch = useDispatch()
 
 
@@ -25,17 +26,34 @@ const MainLayout = (props) => {
           mode="horizontal"
           defaultSelectedKeys={[props.activePage]}
         >
-          <Menu.Item key="main" onClick={() => {dispatch(change_loader(false))}}>
+          <Menu.Item key="main" onClick={() =>
+             { dispatch(change_loader(false)) }}>
             <Link to="/">صفحه اصلی</Link>
           </Menu.Item>
           <Menu.Item key="postsList">
-            <Link to="">لیست پست ها</Link>
+            <Link to="/posts">لیست پست ها</Link>
           </Menu.Item>
-          <Link to="/login">
-            <Button className="login-btn" color="primary" type="submit">
-              صفحه ورود
-            </Button>
-          </Link>
+
+           {login === true ? (
+            <Menu.Item key="dashboard">
+            <Link to="/dashboard" style={{color : "deepskyblue"}}>
+               داشبورد </Link>
+          </Menu.Item>
+           ) : ("")}
+
+
+          {(login === true) ? (
+            
+              
+              <AvatarDropdown/>
+              
+          ) : (
+            <Link to="/login">
+              <Button className="login-btn" color="primary" type="submit">
+                صفحه ورود
+              </Button>
+            </Link>
+          )}
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>

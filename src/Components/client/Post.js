@@ -43,7 +43,7 @@ const Post = () => {
               <Col className='mb-3' xs={12} sm={12} md={6} lg={4} xl={3}>
 
                 <Card >
-                  <Link to={`/${post.id}`}>
+                  <Link to={`/posts/${post.id}`}>
                     <CardImg alt={post.title.rendered} className='posts-img' src={post.uagb_featured_image_src.medium[0]
                       ? post.uagb_featured_image_src.medium[0]
                       : "assets/Newfolder/img_not_found.png"} /> </Link>
@@ -51,7 +51,7 @@ const Post = () => {
                     {post.title.rendered}
                     <Divider />
                     <Paragraph ellipsis={{ rows: 2, expandable: false }}><div>{renderHTML(post.content.rendered)}</div></Paragraph>
-                    <Link to={`/${post.id}`}> <span> ادامه مطلب</span></Link>
+                    <Link to={`/posts/${post.id}`}> <span> ادامه مطلب</span></Link>
                     <Divider />
                   </CardBody>
                 </Card>
