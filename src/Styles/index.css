@@ -38,19 +38,16 @@ a{
   margin: 16px 24px 16px 0;
   float: left;
 }
-
-.ant-avatar{
-  position: absolute!important;
-  left: 30px!important;
-  top: 9px!important;
-
-}
 .ant-dropdown-menu{
   width: 9rem;
 }
 
 
-
+.login-avatar{
+  position: absolute!important;
+  left: 30px!important;
+  top: 9px!important;
+}
 
 
 /*======================
@@ -106,4 +103,22 @@ a{
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 28px 16px 0;
   float: left;
+}
+
+.ant-av{
+  right: 15px!important;
+    top: 40px!important;
+    
+}
+
+.mr{
+  margin-right: 6rem;
+    position: relative;
+    top: -26px;
+}
+
+.sp{
+  margin-right: 3rem;
+  position: relative;
+  top: 1rem;
 }

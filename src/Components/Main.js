@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import '../Styles/App.css';
 import Post from '../Components/client/Post';
 import axios from 'axios';
 import clientConfig from '../clientConfig';
+import { useDispatch } from 'react-redux';
+import { get_tags } from '../redux/actions';
 
-const data = {
-  "username" : "daeemehrdad",
-	"password" : "daee2696890"
-}
 
-class Main extends Component {
+// const data = {
+//   "username" : "sir_mehrdad",
+// 	"password" : "123456"
+// }
 
-componentDidMount(){
-  axios.post(`${clientConfig.siteUrl}/wp-json/jwt-auth/v1/token`, data , {
-    headers:{
-      "Content-Type" : "application/json "
-    }
-  }).then(res=>{
-    window.localStorage.setItem("token" , res.data.token)
-    console.log("token is : " , res)
-  }).catch(err=>{console.log( err ,"token err" )})
-}
 
-  render() {
+
+const Main  = () => {
+
+
+  
   return (
     <div className="App">
   
@@ -30,7 +25,7 @@ componentDidMount(){
    
     </div>
   );
-}
-}
+};
+
 
 export default Main;

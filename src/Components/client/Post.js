@@ -2,7 +2,7 @@ import Loader from "../../loader.gif";
 import React from 'react';
 import MainLayout from '../Layout/mainLayout';
 import { Row, Col, Card, CardImg, CardBody } from "reactstrap";
-import { Divider, Typography } from "antd";
+import { Divider, Tag, Typography } from "antd";
 import axios from 'axios';
 import clientConfig from '../../clientConfig';
 import { useState } from 'react';
@@ -16,16 +16,24 @@ import { change_loader } from '../../redux/actions';
 
 const { Paragraph } = Typography;
 const Post = () => {
+  const alltags = useSelector ( state => state.tags )
   const loader = useSelector(state => state.loader)
   const dispatch = useDispatch()
   const [data, setData] = useState([])
 
-  axios.get(`${clientConfig.siteUrl}/wp-json/wp/v2/posts`).then((res) => {
+if(data.length === 0){
+
+  axios.get(`${clientConfig.siteUrl}/wp-json/wp/v2/posts?per_page=50`).then((res) => {
     setData(res.data)
     dispatch(change_loader(true))
     // console.log(res.data, "is responce")
   }).catch(err => console.catch(err, "is not responce"))
 
+}else{
+  
+}
+
+  
 
 
   return loader===false ?(
@@ -53,6 +61,20 @@ const Post = () => {
                     <Paragraph ellipsis={{ rows: 2, expandable: false }}><div>{renderHTML(post.content.rendered)}</div></Paragraph>
                     <Link to={`/posts/${post.id}`}> <span> ادامه مطلب</span></Link>
                     <Divider />
+                    {
+                      (post.tags.length > 0) ? (
+
+                         post.tags.map(tag =>{
+                               let tagID = (tag);
+                               let foundTag = alltags.find(tag => tag.id === tagID)
+                               return foundTag ? <Tag color ={`#${Math.floor(Math.random() * 1000000)}`}>{foundTag.name},</Tag> : " ";
+                           })
+                          
+       
+                       ) :(
+                            " بدون تگ"
+                       )
+                    }
                   </CardBody>
                 </Card>
 

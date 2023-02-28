@@ -57,4 +57,38 @@
   height: 200px;
 }
 
+.dashboard-card{
+  height: 300px;
+  width: 100%;
+  
 
+}
+
+.primary-card{
+  
+border-radius : 15px;
+padding : 20px;
+}
+.warning-card{
+
+border-radius : 15px;
+padding : 20px;
+}
+.success-card{
+  
+border-radius : 15px;
+padding : 20px;
+}
+.danger-card{
+ 
+  border-radius : 15px;
+  padding : 20px;
+}
+
+.userlist{
+  text-align-last: center;
+}
+
+.user-info-modal{
+  text-align: right;
+}

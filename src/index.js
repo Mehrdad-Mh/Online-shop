@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './Styles/index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/reset.css';
 import * as serviceWorker from './serviceWorker';
 import{Provider} from 'react-redux';
 import { createStore } from 'redux';
+
+
 import reducers from './redux/reducers';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -17,7 +20,7 @@ const store = createStore(
 
 );
 
-// store.subscribe(() => console.log(store.getState()) )
+store.subscribe(() => console.log(store.getState()) )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

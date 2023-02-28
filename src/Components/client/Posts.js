@@ -4,6 +4,7 @@ import MainLayout from "../Layout/mainLayout";
 import { Row, Col, Card, CardBody, CardHeader, CardImg } from "reactstrap";
 import { Divider, Typography } from "antd";
 import renderHTML from "react-render-html";
+import PostComment from "./comment";
 
 
 const { Paragraph } = Typography
@@ -43,6 +44,13 @@ const Posts = ({ post }) => {
                                     <Paragraph ellipsis={{ row: 5, expandable: true, symbol: "مشاهده کل مطلب" }}>{renderHTML(post.content.rendered)}</Paragraph>
                                 </Col>
                             </Row>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        
+                        <Divider/>
+                        <CardBody>
+<PostComment postId ={post.id}/>
                         </CardBody>
                     </Card>
                 </Col>
